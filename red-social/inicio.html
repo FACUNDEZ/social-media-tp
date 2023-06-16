@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Plantilla Principal</title>
+  <link rel="stylesheet" type="text/css" href="inicio.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <div class="search">
+      <div class="button-search" id="button-search">
+        <svg width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+          <path d="M21 21l-6 -6" />
+        </svg>
+      </div>
+      <input class="buscador-inicio" type="text" placeholder="Buscar...">
+      <input class="go-button" type="submit" value="Go">
+    </div>
+    <div class="logout-profile">
+      <button class="perfil-button">Mi Perfil</button>
+      <button class="log-out-button">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <main>
+
+    <h2>¡Expresáte!</h2>
+    <section class="input-add-publicacion">
+      <div class="filter-input">
+        <input class="publica-tu-estado" type="text" placeholder="Publica algo..."> <br>
+        <button class="filter-button"><svg xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-adjustments-horizontal" width="44" height="44" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M4 6l8 0" />
+            <path d="M16 6l4 0" />
+            <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M4 12l2 0" />
+            <path d="M10 12l10 0" />
+            <path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M4 18l11 0" />
+            <path d="M19 18l1 0" />
+          </svg></button>
+      </div>
+      <div class="buttons-emotions">
+        <input class="happy" type="submit" value="&#128512">
+        <input class="angry" type="submit" value="&#128545">
+        <input class="lucky" type="submit" value="&#9752;">
+        <input class="sad" type="submit" value="&#128557">
+        <input class="funny" type="submit" value="&#128514;">
+        <input class="love" type="submit" value="&#128147">
+      </div>
+    </section>
+
+
+  </main>
+
+  <section class="postings">
+  <h3>¡Mira las publicaciones de tus amigos!</h3>
+  <div class="posting-area">
+
+  </div>
+  </section>
+
+  <footer class="footer">
+      <p class="footer-copy">Todos los derechos reservados &copy; ForYouTime 2023</p>
+      <div class="buttons-footer">
+      <button class="contact">Contacto</button>
+      <button class="about-us">Sobre Nosotros</button>
+      </div>
+  </footer>
+</body>
+
+</html>

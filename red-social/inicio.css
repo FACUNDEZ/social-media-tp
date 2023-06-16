@@ -1,0 +1,216 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f1f2f3;
+}
+
+header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ee82ee;
+    width: 100%;
+}
+
+header .search {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.search .button-search {
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.search .buscador-inicio, .go-button {
+    display: none;
+}
+
+.logout-profile {
+    margin-right: 10px;
+}
+
+.go-button {
+    background: #bb6abb;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+header .perfil-button {
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    padding: 15px;
+    font-weight: bolder;
+    transition: 1s all ease;
+}
+
+header .log-out-button {
+    background: #000;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 132px;
+    padding: 15px;
+    font-weight: bolder;
+    transition: 1s all ease;
+}
+
+header .log-out-button:hover, header .perfil-button:hover {
+    background-color: #bb6abb;
+    color: #000;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    font-size: 50px;
+    background-color: #000;
+    color: #ee82ee;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    margin: 30px auto;
+    color: #ee82ee;
+}
+
+.input-add-publicacion {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 40px;
+    background-color: #ee82ee;
+    padding: 10px;
+}
+
+.input-add-publicacion .filter-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input-add-publicacion .publica-tu-estado {
+    border: none;
+    border-radius: 10px;
+    width: 80%;
+    padding: 18px;
+    margin: 15px 30px 10px 20px;
+}
+
+.input-add-publicacion .filter-button {
+    width: 20%;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.buttons-emotions {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    align-content: center;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.happy, .angry, .lucky, .sad, .funny, .love {
+    width: 80px;
+    font-size: 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.happy {
+    background: rgb(223, 223, 12);
+}
+.angry {
+    background: rgb(107, 6, 6);
+}
+.lucky {
+    background: green;
+}
+.sad {
+    background:blue;
+}
+.funny {
+    background:pink;
+}
+.love {
+    background: rgb(100, 18, 100);
+}
+
+h3 {
+    margin: 80px auto;
+    text-align: center;
+    font-size: 30px;
+    color: #ee82ee;
+}
+
+.postings .posting-area  {
+    width: 90%;
+    padding: 200px 0;
+    margin: 10px auto 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #fff;
+    box-shadow: 0px 7px 19px 5px rgba(173,169,169,0.83);
+    -webkit-box-shadow: 0px 7px 19px 5px rgba(173,169,169,0.83);
+    -moz-box-shadow: 0px 7px 19px 5px rgba(173,169,169,0.83);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+}
+
+.footer-copy {
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    margin: 30px auto;
+}
+
+footer button {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ee82ee;
+    color: white;
+    font-weight: bolder;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+footer button:hover {
+    background-color: #bb6abb;
+}
+
+
