@@ -4,213 +4,413 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-
 body {
-    background-color: #f1f2f3;
+    background-color: rgb(243, 237, 237);
+    overflow-x: hidden;
 }
-
 header { 
     display: flex;
+    background: linear-gradient(to right, #8f058f, black, black);
+    width: 100%;
+    padding: 15px;
     justify-content: space-between;
     align-items: center;
-    background: #ee82ee;
-    width: 100%;
 }
-
-header .search {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-    margin: 10px;
-}
-
-.search .button-search {
-    cursor: pointer;
-    margin-left: 15px;
-}
-
-.search .buscador-inicio, .go-button {
+.logo {
     display: none;
 }
-
-.logout-profile {
-    margin-right: 10px;
-}
-
-.go-button {
-    background: #bb6abb;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    width: 100px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: bolder;
-}
-
-header .perfil-button {
-    background: #000;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100px;
-    padding: 15px;
-    font-weight: bolder;
-    transition: 1s all ease;
-}
-
-header .log-out-button {
-    background: #000;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    width: 132px;
-    padding: 15px;
-    font-weight: bolder;
-    transition: 1s all ease;
-}
-
-header .log-out-button:hover, header .perfil-button:hover {
-    background-color: #bb6abb;
-    color: #000;
-}
-
-.hero {
-    text-align: center;
-    padding: 100px 0;
-    font-size: 50px;
-    background-color: #000;
-    color: #ee82ee;
-}
-
-h2 {
-    text-align: center;
-    font-size: 30px;
-    margin: 30px auto;
-    color: #ee82ee;
-}
-
-.input-add-publicacion {
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 10px;
-    margin-top: 40px;
-    background-color: #ee82ee;
-    padding: 10px;
-}
-
-.input-add-publicacion .filter-input {
-    width: 100%;
+.header-right-button {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
 }
-
-.input-add-publicacion .publica-tu-estado {
-    border: none;
-    border-radius: 10px;
-    width: 80%;
-    padding: 18px;
-    margin: 15px 30px 10px 20px;
+.page-tittle {
+    display: none;
 }
-
-.input-add-publicacion .filter-button {
-    width: 20%;
-    border: none;
+.buscador-header {
+    display: none;
+}
+.go-button {
     background: none;
-    cursor: pointer;
-}
-
-.buttons-emotions {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    align-content: center;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.happy, .angry, .lucky, .sad, .funny, .love {
-    width: 80px;
-    font-size: 35px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
-    cursor: pointer;
 }
-
+.perfil-button {
+    color: white;
+    background: #8f058f;
+    border-radius: 10px;
+    padding: 1px;
+    width: 100px;
+    font-size: 24px;
+    border: solid black 1px;
+}
+.log-out-button {
+    color: white;
+    background: #8f058f;
+    border-radius: 10px;
+    padding: 1px;
+    width: 120px;
+    font-size: 24px;
+    border: solid black 1px;
+    margin-left: 14px;
+}
+h1 {
+    display: none;
+}
+.aside-left {
+    display: none;
+}
+.aside-right {
+    display: none;
+}
+.input-add-publicacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 16px;
+    background-color: #8f058f;
+    padding: 10px;
+}
+.publica-tu-estado {
+    border-radius: 10px;
+    border: 2px solid white;
+    display: flex;
+    width: 86%;
+    padding: 15px;
+    margin-top: 3%;
+    font-size: 48px;
+}
+.buttons-emotions {
+    display: flex;
+    margin-top: 3px;
+    margin-bottom: 16px;
+}
 .happy {
-    background: rgb(223, 223, 12);
+    width: 120px;
+    background: #dfdf0c;
+    font-size: 70px;
+    border-radius: 16px;
+    border: 2px solid #dfdf0c;
+    padding: 10px;
 }
 .angry {
-    background: rgb(107, 6, 6);
+    width: 120px;
+    background: #6b0606;
+    border: 2px solid #6b0606;
+    font-size: 70px;
+    border-radius: 16px;
+    margin-left: 16px;
 }
 .lucky {
     background: green;
+    border: 2px solid green;
+    width: 120px;
+    font-size: 70px;
+    border-radius: 16px;
+    margin-left: 16px;
 }
 .sad {
+    width: 120px;
     background:blue;
+    border: 2px solid blue;
+    font-size: 70px;
+    border-radius: 16px;
+    margin-left: 16px;
 }
 .funny {
+    width: 120px;
     background:pink;
+    border: 2px solid pink;
+    font-size: 70px;
+    border-radius: 16px;
+    margin-left: 16px;
 }
 .love {
-    background: rgb(100, 18, 100);
+    width: 120px;
+    background:#ff9be6;
+    border: 2px solid #ff9be6;
+    font-size: 70px;
+    border-radius: 16px;
+    margin-left: 16px;
 }
-
-h3 {
-    margin: 80px auto;
-    text-align: center;
-    font-size: 30px;
-    color: #ee82ee;
+.filter-button {
+    background: #8f058f;
+    border: solid #8f058f 1px;
+    border-radius: 10px;
+    padding: 15px;
+    width: 85px;
+    margin-left: 89%;
 }
-
-.postings .posting-area  {
-    width: 90%;
-    padding: 200px 0;
-    margin: 10px auto 80px;
+.posting-area {
     display: grid;
-    grid-template-columns: 1fr;
-    background-color: #fff;
-    box-shadow: 0px 7px 19px 5px rgba(173,169,169,0.83);
-    -webkit-box-shadow: 0px 7px 19px 5px rgba(173,169,169,0.83);
-    -moz-box-shadow: 0px 7px 19px 5px rgba(173,169,169,0.83);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px 250px 250px;
+    border-radius: 10px;
+    margin: 25px;
+    background: white;
 }
-
+.container-post {
+    width: 100%;
+    text-align: left;
+    padding: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0 10px 0;
+}
 footer {
     display: flex;
     flex-direction: column;
+    background: black;
+}
+.footer-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48px;
+    margin-top: 8px;
+}
+.footer-2 {
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: black;
 }
-
-.footer-copy {
+.footer-info {
     color: white;
     font-size: 32px;
-    text-align: center;
-    margin: 30px auto;
 }
-
-footer button {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background-color: #ee82ee;
+.footer-button-1 {
+    margin-left: 100px;
     color: white;
-    font-weight: bolder;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: all 1s ease;
+    background: #8f058f;
+    border-radius: 7px;
+    padding: 1px;
+    font-size: 24px;
+    border: solid black 1px;
 }
-
-footer button:hover {
-    background-color: #bb6abb;
+.footer-button-2 {
+    color: white;
+    background: #8f058f;
+    border-radius: 7px;
+    padding: 1px;
+    font-size: 24px;
+    border: solid black 1px;
 }
-
-
+@media (min-width: 1366px) {
+    header { 
+        padding: 16px;
+        justify-content: space-between;
+    }
+    .logo {
+        display: flex;
+        width: 50px;
+        border-radius: 10px;
+    }
+    .go-button {
+        display: none;
+    }
+    .page-tittle {
+        display: flex;
+        background: none;
+        font-size: 36px;
+    }
+    .buscador-header {
+        display: flex;
+        margin-right: 200px;
+        width: 600px;
+        border-radius: 10px;
+        padding: 13px;
+    }
+    .perfil-button {
+        width: 80px;
+        font-size: 16px;
+    }
+    .log-out-button {
+        width: 90px;
+        height: 40px;
+        font-size: 16px;
+    }
+    h1 {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 3px;
+        font-size: 30px;
+        margin-top: 10px;
+        border-radius: 15px;
+        padding: 0;
+        width: 100%;
+        background: #8f058f;
+    }
+    main {
+        display: flex;
+        justify-content: space-between;
+    }
+    .main-container {
+        width: 850px;
+        margin-left: 75px;
+        margin-top: 5px;
+    }
+    .input-add-publicacion {
+        border-radius: 10px;
+        margin: 16px;
+        padding: 16px;
+        width: 800px;
+    }
+    .publica-tu-estado {
+        display: flex;
+        width: 85%;
+        padding: 1px;
+        margin-top: 3%;
+    }
+    .buttons-emotions {
+        display: flex;
+        margin-bottom: 16px;
+    }
+    .happy {
+        width: 95px;
+        margin-left: 16px;
+        font-size: 40px;
+    }
+    .angry {
+        width: 95px;
+        margin-left: 16px;
+        font-size: 40px;
+    }
+    .lucky {
+        width: 95px;
+        margin-left: 16px;
+        font-size: 40px;
+    }
+    .sad {
+        width: 95px;
+        margin-left: 16px;
+        font-size: 40px;
+    }
+    .funny {
+        width: 95px;
+        margin-left: 16px;
+        font-size: 40px;
+    }
+    .love {
+        width: 95px;
+        margin-left: 16px;
+        font-size: 40px;
+        margin-right: 10px;
+    }
+    .filter-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 85%;
+        height: 50px;
+    }
+    .aside-right {
+    display: grid;
+    padding: 150px;
+    background: white;
+    border-left: solid 2px black;
+    }
+  }
+  @media (min-width: 1600px) {
+    header { 
+        padding: 3px;
+        justify-content: space-between;
+    }
+    .logo {
+        display: flex;
+        width: 50px;
+        border-radius: 10px;
+    }
+    .buscador-header {
+        width: 700px;
+    }
+    h1 {
+        padding: 3px;
+    }
+    .main-container {
+        width: 1050px;
+    }
+    .input-add-publicacion {
+        width: 1000px;
+    }
+    .publica-tu-estado {
+        width: 99%;
+    }
+    .happy {
+        margin-left: 16px;
+    }
+    .angry {
+        margin-left: 48px;
+    }
+    .lucky {
+        margin-left: 48px;
+    }
+    .sad {
+        margin-left: 48px;
+    }
+    .funny {
+        margin-left: 48px;
+    }
+    .love {
+        margin-left: 48px;
+        margin-right: 10px;
+    }
+    .filter-button {
+        margin-left: 89%;
+    }
+    .aside-right {
+    padding: 200px;
+    }
+  }
+  @media (min-width: 1900px) {
+    header { 
+        padding: 8px;
+    }
+    .buscador-header {
+        margin-right: 300px;
+        width: 800px;
+    }
+    .main-container {
+        width: 1250px;
+    }
+    .page-tittle {
+        margin-right: 00px;
+    }
+    .input-add-publicacion {
+        margin: 16px;
+        padding: 16px;
+        width: 1200px;
+    }
+    .publica-tu-estado {
+        margin-right: 100px;
+        width: 90%;
+    }
+    .happy {
+        width: 95px;
+        font-size: 40px;
+    }
+    .angry {
+        margin-left: 84px;
+    }
+    .lucky {
+        margin-left: 84px;
+    }
+    .sad {
+        margin-left: 84px;
+    }
+    .funny {
+        margin-left: 84px;
+    }
+    .love {
+        margin-left: 84px;
+        margin-right: 175px;
+    }
+    .filter-button {
+        margin-left: 91%;
+    }
+    .aside-right {
+    padding: 275px;
+    }
+  }

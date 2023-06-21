@@ -1,83 +1,77 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Plantilla Principal</title>
-  <link rel="stylesheet" type="text/css" href="inicio.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="inicio.css">
 </head>
-
 <body>
-
-  <header>
-    <div class="search">
-      <div class="button-search" id="button-search">
-        <svg width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-          <path d="M21 21l-6 -6" />
-        </svg>
-      </div>
-      <input class="buscador-inicio" type="text" placeholder="Buscar...">
-      <input class="go-button" type="submit" value="Go">
-    </div>
-    <div class="logout-profile">
-      <button class="perfil-button">Mi Perfil</button>
-      <button class="log-out-button">Cerrar Sesión</button>
-    </div>
-  </header>
-
+<header>
+         <img class="logo" src="data:image/png;base64,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" width="32px" alt="">
+         <h1 class="page-tittle">ForYouTime</h1>
+         <input type="text" class="buscador-header" placeholder="¿Que Buscas Hoy?">
+         <button type="submit" class="go-button" type="submit" value="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="48" height="48" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+        </button>
+         <div class="header-right-button">
+         <button class="perfil-button">Mi <br> Perfil</button>
+         <button class="log-out-button" id="log-out-button">Cerrar sesion</button>
+        </div>
+</header>
+<h1>Que el mundo sepa como te sentis el dia de hoy</h1>
   <main>
-
-    <h2>¡Expresáte!</h2>
-    <section class="input-add-publicacion">
-      <div class="filter-input">
-        <input class="publica-tu-estado" type="text" placeholder="Publica algo..."> <br>
-        <button class="filter-button"><svg xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-adjustments-horizontal" width="44" height="44" viewBox="0 0 24 24"
-            stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M4 6l8 0" />
-            <path d="M16 6l4 0" />
-            <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M4 12l2 0" />
-            <path d="M10 12l10 0" />
-            <path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M4 18l11 0" />
-            <path d="M19 18l1 0" />
-          </svg></button>
-      </div>
-      <div class="buttons-emotions">
-        <input class="happy" type="submit" value="&#128512">
-        <input class="angry" type="submit" value="&#128545">
-        <input class="lucky" type="submit" value="&#9752;">
-        <input class="sad" type="submit" value="&#128557">
-        <input class="funny" type="submit" value="&#128514;">
-        <input class="love" type="submit" value="&#128147">
-      </div>
+             <section class="aside-left"></section>
+    <section class="main-container">
+      <section class="input-add-publicacion">
+        <form id="form">
+         <input class="publica-tu-estado" id="input-posts" type="text" placeholder="Expresate"> <br>
+        <section class="buttons-emotions">
+           <input class="happy" id="btn-happy" type="button" value="&#128512">
+           <input class="angry" id="btn-angry" type="button" value="&#128545">
+           <input class="lucky" id="btn-lucky" type="button" value="&#9752;">
+           <input class="sad" id="btn-sad" type="button" value="&#128557">
+           <input class="funny" id="btn-funny" type="button" value="&#128514;">
+           <input class="love" id="btn-love" type="button" value="&#128147">
+        </section>
+        </form>
+      </section>
+          <div>
+           <button class="filter-button">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="48" height="48" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 6l8 0" />
+              <path d="M16 6l4 0" />
+              <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 12l2 0" />
+              <path d="M10 12l10 0" />
+              <path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 18l11 0" />
+              <path d="M19 18l1 0" />
+              </svg>
+           </button>
+           </div>
+       <section class="posting-area" id="posting-area"></section>
     </section>
-
-
+              <aside class="aside-right"></aside>
   </main>
-
-  <section class="postings">
-  <h3>¡Mira las publicaciones de tus amigos!</h3>
-  <div class="posting-area">
-
-  </div>
-  </section>
-
   <footer class="footer">
-      <p class="footer-copy">Todos los derechos reservados &copy; ForYouTime 2023</p>
-      <div class="buttons-footer">
-      <button class="contact">Contacto</button>
-      <button class="about-us">Sobre Nosotros</button>
+     <div>
+      <p class="footer-name">ForYouTime</p>
+     </div>
+      <div class="footer-2">
+           <p class="footer-info">Todos los derechos reservados &copy;2023</p>
+           <button class="footer-button-1">Contacto</button>
+           <button class="footer-button-2">Informacion</button>
       </div>
   </footer>
-</body>
 
+  <script src="inicio.js"></script>
+</body>
 </html>

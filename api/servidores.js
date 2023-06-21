@@ -11,13 +11,13 @@ app.use(cors());
 
 // CONNECT TO DATABASE
 
-const connection = mysql.createConnection({
+/*const connection = mysql.createConnection({
     host: '192.168.0.210',
     user: 'root',
     password: '36779788'
 });
 
-connection.connect();
+connection.connect();*/
 
 // REGISTER 
 
@@ -57,7 +57,7 @@ app.post("/posts", (req, res) => {
         const { writing } = req.body
 
         const post = {
-            writing: writing,
+            writing: writing
         }
 
         postArr.unshift(post)
