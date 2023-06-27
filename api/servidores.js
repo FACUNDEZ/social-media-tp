@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 const app = express();
 
@@ -11,38 +11,63 @@ app.use(cors());
 
 // CONNECT TO DATABASE
 
-/*const connection = mysql.createConnection({
-    host: '192.168.0.210',
+const connection = mysql.createConnection({
+    host: 'localhost',
     user: 'root',
-    password: '36779788'
+    password: '36779788',
+    database: 'socialmedia',
+    port: '3306',
 });
 
-connection.connect();*/
+connection.connect((error) => {
+    if (error) {
+        console.error('Error al conectar con la base de datos:', error);
+    } else {
+        console.log('Conexión exitosa a la base de datos');
+    }
+});
 
 // REGISTER 
 
 app.post("/signin", (req, res) => {
-    const { name, lastName, email, password } = req.body
+    const { firstname, lastname, email, password } = req.body;
 
-    const newUser = {
-        name,
-        lastName,
-        email,
-        password
-    }
+    const query = 'INSERT INTO registeredUsers (firstname, lastname, email, password) VALUES (?, ?, ?, ?)';
+    const values = [firstname, lastname, email, password];
 
-    res.json({ newUser })
-})
+    connection.query(query, values, (err, results, fields) => {
+        if (err) {
+            res.status(500).json({ error: 'Error al insertar usuario' });
+        } else {
+            res.json({ results });
+        }
+    });
+});
 
 // LOG IN
 
 app.post("/login", (req, res) => {
-    const { email, password } = req.body
-
-    res.json({ email, password })
-})
+    const { email, password } = req.body;
+  
+    const query = 'SELECT * FROM registeredUsers WHERE email = ? AND password = ?';
+    const values = [email, password];
+  
+    connection.query(query, values, (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: 'Error al consultar la base de datos' });
+      }
+  
+      if (results.length === 0) {
+        return res.status(401).json({ error: 'Credenciales inválidas' });
+      }
+  
+      res.json({ message: 'Inicio de sesión exitoso' });
+    });
+  });
+  
 
 // LOG OUT
+
 app.delete("/logout", (req, res) => {
 
     res.json({ message: "Logout exitoso" });
@@ -50,23 +75,24 @@ app.delete("/logout", (req, res) => {
 
 // POST OF USER 
 
-let postArr = []
-
 app.post("/posts", (req, res) => {
-    try {
-        const { writing } = req.body
+    const { writing } = req.body
 
-        const post = {
-            writing: writing
-        }
-
-        postArr.unshift(post)
-
-        res.json(postArr)
+    const post = {
+        writing: writing
     }
-    catch (error) {
-        console.log(error)
-    }
+
+    res.json(post)
+
+    console.log(error)
+
+})
+
+// DELETE POST 
+
+app.delete("/deletePost", (req, res) => {
+
+    res.json()
 })
 
 app.listen(3000, (req, res) => {
