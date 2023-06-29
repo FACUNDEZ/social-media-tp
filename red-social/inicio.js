@@ -7,6 +7,7 @@ const btnAngry = document.getElementById('btn-angry')
 const btnLucky = document.getElementById('btn-lucky')
 const btnFunny = document.getElementById('btn-funny')
 const btnLove = document.getElementById('btn-love')
+const perfilButton = document.getElementById('perfil-button')
 
 let arrPosts = []
 
@@ -78,4 +79,9 @@ btnLogOut.addEventListener('click', function (e) {
 
   window.location.href = 'main.html';
 });
+
+
+perfilButton.addEventListener('click', () => {
+  window.location.href = 'perfil.html'
+})
 
