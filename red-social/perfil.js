@@ -1,37 +1,54 @@
 
-async function profile() {
-    try {
-        const userId = 21;
-        const url = `http://localhost:3000/profile/${userId}`;
+function profile() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"))
 
-        const response = await fetch(url, {
-            method: 'GET'
-        });
+  const p = document.createElement('p');
 
-        const data = await response.json();
-        console.log(data);
-
-        if (response.status === 401) {
-            console.log(data.err);
-        }
-        if (response.status === 200) {
-            console.log(data.message);
-        }
-
-        const p = document.createElement('p');
-
-        if (data.profile) {
-            p.textContent = `Firstname: ${data.profile.firstname}, Lastname: ${data.profile.lastname}`;
-            console.log(data.message);
-        } else {
-            p.textContent = "No se encontró ningún perfil.";
-            console.log(data.message);
-        }
-        document.body.appendChild(p);
-
-    } catch (error) {
-        console.log(error);
-    }
+  if (usuario) {
+    p.textContent = `Firstname: ${usuario.usuario.firstname}, Lastname: ${usuario.usuario.lastname}`;
+    console.log(usuario)
+  } else {
+    p.textContent = "No se encontró ningún perfil.";
+  }
+  document.body.appendChild(p);
 }
 
 profile();
+
+async function getPostsOfUser() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const registeredUser_id = usuario.usuario.id;
+
+  const url = `http://localhost:3000/posts?registeredUser_id=${registeredUser_id}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const posts = data.posts;
+
+    const postSection = document.getElementById("postSection");
+    postSection.innerHTML = "";
+
+    if (posts.length > 0) {
+      posts.forEach((post) => {
+        const p = document.createElement("p");
+        p.textContent = post.text;
+        postSection.prepend(p);
+      });
+    } else {
+      const p = document.createElement("p");
+      p.textContent = "No se encontraron posts del usuario";
+      postSection.prepend(p);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getPostsOfUser();
+
+
+
+
+

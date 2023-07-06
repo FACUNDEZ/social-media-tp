@@ -9,7 +9,7 @@ const btnFunny = document.getElementById('btn-funny')
 const btnLove = document.getElementById('btn-love')
 const perfilButton = document.getElementById('perfil-button')
 
-let arrPosts = []
+let arrPosts = [];
 
 async function logout() {
   const url = 'http://localhost:3000/logout';
@@ -19,8 +19,8 @@ async function logout() {
       method: 'DELETE',
     });
 
-    const data = response.json()
-    console.log(data)
+    const data = response.json();
+    console.log(data);
   } catch (error) {
     console.error(error);
   }
@@ -34,7 +34,8 @@ async function postThings(e) {
     'Content-Type': 'application/json'
   };
   const body = JSON.stringify({
-    writing: inputPosts.value
+    text: inputPosts.value,
+    registeredUser_id: JSON.parse(localStorage.getItem('usuario')).usuario.id
   });
 
   try {
@@ -47,19 +48,52 @@ async function postThings(e) {
     const data = await response.json();
     console.log(data);
 
-    const div = document.createElement('div')
-    div.className = 'container-post'
-    const li = document.createElement('li')
-    li.textContent = inputPosts.value
-    li.style.listStyle = 'none'
-    postSection.appendChild(div)
-    div.appendChild(li);
+    const div = document.createElement('div');
+    div.className = 'container-post';
+    const p = document.createElement('p');
+    p.textContent = inputPosts.value;
+    div.appendChild(p);
+    postSection.prepend(div);
 
     inputPosts.value = '';
+
+    arrPosts.unshift(data.post);
+
+    localStorage.setItem('arrPosts', JSON.stringify(arrPosts));
   } catch (error) {
     console.log(error);
   }
 }
+
+async function loadAllPosts() {
+  const url = 'http://localhost:3000/allposts';
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (response.status === 200) {
+      const allPosts = data.allposts;
+
+      postSection.innerHTML = '';
+
+      allPosts.forEach((post) => {
+        const div = document.createElement('div');
+        div.className = 'container-post';
+        const p = document.createElement('p');
+        p.textContent = post.text;
+        div.appendChild(p);
+        postSection.prepend(div);
+      });
+    } else {
+      console.log(data.error);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+loadAllPosts();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -67,21 +101,23 @@ form.addEventListener('submit', (e) => {
   if (inputPosts.value !== '') {
     arrPosts.unshift(inputPosts.value);
     postThings(e);
+    console.log(arrPosts);
   } else {
-    alert('publica algo')
+    alert('Publica algo');
   }
 });
 
 btnLogOut.addEventListener('click', function (e) {
-  e.preventDefault()
+  e.preventDefault();
 
   logout();
 
   window.location.href = 'main.html';
 });
 
-
 perfilButton.addEventListener('click', () => {
-  window.location.href = 'perfil.html'
-})
+  window.location.href = 'perfil.html';
+});
+
+loadAllPosts();
 

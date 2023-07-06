@@ -46,34 +46,7 @@ app.post("/signin", (req, res) => {
     });
 });
 
-// CREATE PROFILE AFTER REGISTER AUTOMATICALLY
-
-app.get("/profile/:userId", (req, res) => {
-    const { userId } = req.params;
-
-    const query = 'SELECT firstname, lastname FROM registeredUsers WHERE id = ?';
-    const values = [userId];
-
-    connection.query(query, values, (err, results, fields) => {
-        if (err) {
-            return res.status(500).json({ err: 'Error al consultar la base de datos' });
-        }
-
-        if (results.length === 0) {
-            return res.status(401).json({ err: 'Usuario no encontrado' });
-        }
-
-        if (results.length !== 0) {
-            const profile = {
-                firstname: results[0].firstname,
-                lastname: results[0].lastname
-            }
-          return res.status(200).json({ message: 'Perfil cargado exitosamente', profile });
-        }
-    });
-})
-
-// LOG IN
+// LOG IN AND CHARGE PROFILE AFTER LOGIN AUTOMATICALLY
 
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
@@ -90,7 +63,7 @@ app.post("/login", (req, res) => {
             return res.status(401).json({ error: 'Credenciales inválidas' });
         }
 
-        res.json({ message: 'Inicio de sesión exitoso' });
+        res.json({ message: 'Inicio de sesión exitoso', usuario: { ...results[0] } });
     });
 });
 
@@ -104,17 +77,50 @@ app.delete("/logout", (req, res) => {
 // POST OF USER 
 
 app.post("/posts", (req, res) => {
-    const { writing } = req.body
+    const { text, registeredUser_id } = req.body;
 
-    const post = {
-        writing: writing
-    }
+    const query = 'INSERT INTO postOfUser (registeredUser_id, date, text) VALUES (?, NOW(), ?)';
+    const values = [registeredUser_id, text];
 
-    res.json(post)
+    connection.query(query, values, (error, results) => {
+        if (error) {
+            res.status(500).json({ error: 'Error al insertar el post' });
+            console.log({ error })
+        } else {
+            res.json({ message: 'Post insertado correctamente' });
+        }
+    });
+});
 
-    console.log(error)
+// CHARGE POSTS OF USER ON PROFILE
 
-})
+app.get("/posts", (req, res) => {
+    const { registeredUser_id } = req.query;
+    const query = 'SELECT * FROM postOfUser WHERE registeredUser_id = ?';
+
+    connection.query(query, registeredUser_id, (error, results) => {
+        if (error) {
+            res.status(500).json({ error: 'Error al consultar los posts' });
+            console.log({ error });
+        } else {
+            res.json({ message: 'Posts consultados correctamente', posts: results });
+        }
+    });
+});
+
+// CHARGE ALL POSTS ON LOBBY 
+
+app.get("/allposts", (req, res) => {
+    const query = 'SELECT * FROM postOfUser';
+
+    connection.query(query, (error, results) => {
+        if (error) {
+            res.status(500).json({ error: "Error al consultar los posts" });
+        } else {
+            res.json({ message: "Posts cargados correctamente", allposts: results });
+        }
+    });
+});
 
 // DELETE POST 
 
