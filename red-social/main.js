@@ -34,6 +34,8 @@ async function login() {
       return;
     } else if (response.status === 200) {
       alert(data.message);
+      localStorage.setItem('usuario', JSON.stringify(data))
+
       window.location.href = 'inicio.html';
     }
   } catch (error) {
@@ -46,8 +48,8 @@ form.addEventListener('submit', function (e) {
 
   if (inputEmail.value == '' || inputPassword.value == '') {
     return alert('INGRESE TODOS LOS DATOS POR FAVOR')
-  } 
-  
+  }
+
   login();
 });
 
@@ -81,18 +83,20 @@ async function register() {
 }
 
 registerForm.addEventListener('submit', (e) => {
-    e.preventDefault()
+  e.preventDefault()
 
-    if (newFirstName.value === '' || newLastName.value === '' || newEmail.value === '' || newPassword.value === '') {
-      alert('Completa todos los datos por favor')
-    }
+  if (newFirstName.value === '' || newLastName.value === '' || newEmail.value === '' || newPassword.value === '') {
+    alert('Completa todos los datos por favor')
+  }
 
-    register()
+  register()
 
-    newFirstName.value = ''
-    newLastName.value = ''
-    newEmail.value = ''
-    newPassword.value = ''
+  newFirstName.value = ''
+  newLastName.value = ''
+  newEmail.value = ''
+  newPassword.value = ''
+
+  alert('registrado exitosamente')
 })
 
 
