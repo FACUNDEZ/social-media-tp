@@ -1,119 +1,190 @@
 /* Estilos generales */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
+  background: #f3eded;
+}
   /* Estilos del header */
   header {
-    background-color: #65086d;
-    color: #fff;
-    padding: 1px 0;
     display: flex;
-    border-bottom: 1px solid black;
+    background: linear-gradient(to right, #8f058f, black, black);
+    width: 100%;
+    padding: 0px;
+    align-items: center;
   }
+  .header-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+  }
+  .web-name {
+    display: none;
 
+  }
   .logo {
-    display: flex;
-    margin: 0;
-    margin-bottom: -3%;
-   margin-left: -40%;
-   border-radius: 10px;
-   cursor: pointer;
-
-  }
-  
-  .web-name { 
-    display: flex;
-    font-size: 24px;
-    margin: 0;
-    margin-left: 400px;
-    cursor: pointer;
-
-  }
-  
-  .login-form {
-    display: flex;
-    margin-left: 850px;
-    margin-top: -3%;
-  }
-  
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
-    margin-right: 10px;
+    width: 40px;
     padding: 5px;
-    border-radius: 3px;
-    border: none;
+    border-radius: 19px;
   }
-  
-  .login-form input[type="submit"] {
-    background-color: #fff;
-    color: #65086d;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
+  .input-mail,
+  .input-password {
+    width: 42%;
+    padding: 5px;
+    margin-left: 1px;
+    margin-left: 1px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    justify-content: end;
   }
-  
+  .input-go {
+    width: 35px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+    background: #8f058f;
+  }
   /* Estilos del main */
-  main {
-    background-color: #f0f0f0;
-    padding: 20px 0;
-    flex: 1;
+  h1 {
+    display: flex;
+    justify-content: center;
   }
-  
+  main {
+    background-color: #f3eded;
+    padding: 75px 0;
+    flex: 1;
+    width: 100%;
+  }
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 700px;
+  }
   .register-section {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 3px;
-    max-width: 400px;
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 350px;
   }
-  
   .register-section h2 {
     margin-top: 0;
   }
-  
   .register-form input[type="text"],
   .register-form input[type="email"],
   .register-form input[type="password"] {
     width: 100%;
     margin-bottom: 10px;
     padding: 5px;
-    border-radius: 3px;
+    border-radius: 15px;
     border: 1px solid #ccc;
+    height:35px;
   }
-  
+  .image-section {
+   display: none;
+    }
   .register-form input[type="submit"] {
-    background-color: #65086d;
+    background: #8f058f;
     color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
   }
-  
   /* Estilos del footer */
-  footer {
+  .footer {
+    background: black;
     display: flex;
-    background-color: black;
-    color: #fff;
-    padding: 1px 0;
-    text-align: end;
-    width: 100%;
+    flex-direction: column;
     align-items: center;
+  }
+  .footer-copy {
+    color: white;
+  }
+  .footer-button-1 {
+    color: white;
+    background: #8f058f;
+    border-radius: 6px;
+    padding: 1px;
+    font-size: 16px;
+    border: solid black 1px;
+  }
+  .footer-button-2 {
+    color: white;
+    background: #8f058f;
+    border-radius: 6px;
+    padding: 1px;
+    font-size: 16px;
+    border: solid black 1px;
+  }
+  @media (min-width: 1366px) {
+    .web-name {
+      display: flex;
+      color: white;
+      margin-left: 300px;
+    }
+    header { 
+      padding: 12px;
+      display: flex;
+  }
+  .header-container  {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .web-name-main {
+      display: none;
+    }
+    .image-section {
+      display: flex;
+    }
+    .register-section {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  }
+  @media (min-width: 1430px){
+.logo {
+  width: 60px;
+}
+.web-name {
+  margin-left: 0px;
+}
+.input-mail,
+.input-password {
+  width: 250px;
+}
+.input-go {
+  width: 50px;
+}
+  }
+  @media (min-width: 1900px) {
+.web-name {
+  margin-left: 400px;
+}
+.input-go {
+  margin-right: 15px;
+}
+.image-section {
+  margin-left: 50px;
+}
+.register-section {
+  margin-left: 600px;
+}
+
+.footer {
+ margin-top: 65px;
+}
   }

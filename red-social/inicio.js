@@ -75,8 +75,6 @@ async function loadAllPosts() {
     if (response.status === 200) {
       const allPosts = data.allposts;
 
-      postSection.innerHTML = '';
-
       allPosts.forEach((post) => {
         const div = document.createElement('div');
         div.className = 'container-post';
